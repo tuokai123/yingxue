@@ -1,0 +1,56 @@
+server:
+  port: 9999
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+
+        # 类别服务
+        - id: categories_router
+          uri: lb://api-categorys
+          predicates:
+            - Path=/api/categories/**
+          filters:
+            - StripPrefix=1
+
+        # 用户服务
+        - id: users_router
+          uri: lb://api-users  #注意:书写服务名不能是含有_
+          predicates:
+            - Path=/api/captchas/**,/api/tokens/**,/api/user/**
+          filters:
+            - StripPrefix=1    #去掉前缀filter 去掉请求路由中1级前缀   /captchas
+
+        # 视频服务
+        - id: videos_router
+          uri: lb://api-videos
+          predicates:
+            - Path=/api/videos/**,/api/recommends
+          filters:
+            - StripPrefix=1
+
+        # 搜索服务
+        - id: search_router
+          uri: lb://api-search
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - StripPrefix=1
+
+      globalcors:
+          cors-configurations:
+            '[/**]':
+              allowedOrigins: "*" #允许所有域名访问
+              allowedMethods: "*" #允许所有请求方式访问
+              allowedHeaders: "*" #允许所有请求头可以访问
+    nacos:
+      server-addr: 192.168.127.155:8848 #改成linux主机ip
+
+  application:
+    name: api-gateway
+  redis:
+    port: 6379
+    host: localhost   #改成linux主机ip
+

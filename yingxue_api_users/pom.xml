@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yingxue_api</artifactId>
+        <groupId>com.baizhi</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>yingxue_api_users</artifactId>
+
+    <dependencies>
+        <!--commons-->
+        <dependency>
+            <groupId>com.baizhi</groupId>
+            <artifactId>ying_api_commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.3.0.RELEASE</version>
+        </dependency>
+
+
+
+        <!--阿里云云通信-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+        </dependency>
+
+
+        <!--spring-cloud-stater-openfeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+
+        <!--oss-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+        </dependency>
+
+        <!--fileupload-->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
+
+        <!--视频截取第一帧-->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacpp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bytedeco.javacpp-presets</groupId>
+            <artifactId>ffmpeg-platform</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.bytedeco.javacpp-presets</groupId>
+            <artifactId>opencv-platform</artifactId>
+        </dependency>
+
+
+        <!--test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+
+
+    </dependencies>
+</project>

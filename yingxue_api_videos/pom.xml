@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yingxue_api</artifactId>
+        <groupId>com.baizhi</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>yingxue_api_videos</artifactId>
+
+
+    <dependencies>
+        <!--commons-->
+        <dependency>
+            <groupId>com.baizhi</groupId>
+            <artifactId>ying_api_commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <!--spring-boot-starter-redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.3.0.RELEASE</version>
+        </dependency>
+
+
+
+        <!--引入mq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+
+        <!--test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+
+
+    </dependencies>
+
+
+</project>

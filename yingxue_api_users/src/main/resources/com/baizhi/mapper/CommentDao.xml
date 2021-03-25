@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.CommentDao">
+
+    <resultMap type="com.baizhi.entity.Comment" id="CommentMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="videoId" column="video_id" jdbcType="INTEGER"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+        <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+        <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+        <result property="deletedAt" column="deleted_at" jdbcType="TIMESTAMP"/>
+        <!--封住孩子评论-->
+        <collection property="children" javaType="list" ofType="com.baizhi.entity.Comment" >
+            <result property="id" column="cid" jdbcType="INTEGER"/>
+            <result property="uid" column="cuid" jdbcType="INTEGER"/>
+            <result property="videoId" column="cvideo_id" jdbcType="INTEGER"/>
+            <result property="content" column="ccontent" jdbcType="VARCHAR"/>
+            <result property="parentId" column="cparent_id" jdbcType="INTEGER"/>
+            <result property="createdAt" column="ccreated_at" jdbcType="TIMESTAMP"/>
+            <result property="updatedAt" column="cupdated_at" jdbcType="TIMESTAMP"/>
+            <result property="deletedAt" column="cdeleted_at" jdbcType="TIMESTAMP"/>
+        </collection>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CommentMap">
+        select
+        id, uid, video_id, content, parent_id, created_at, updated_at, deleted_at
+        from yingxue.comment
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="CommentMap">
+        select
+        id, uid, video_id, content, parent_id, created_at, updated_at, deleted_at
+        from yingxue.comment
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="CommentMap">
+        select
+        id, uid, video_id, content, parent_id, created_at, updated_at, deleted_at
+        from yingxue.comment
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="videoId != null">
+                and video_id = #{videoId}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="parentId != null">
+                and parent_id = #{parentId}
+            </if>
+            <if test="createdAt != null">
+                and created_at = #{createdAt}
+            </if>
+            <if test="updatedAt != null">
+                and updated_at = #{updatedAt}
+            </if>
+            <if test="deletedAt != null">
+                and deleted_at = #{deletedAt}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into yingxue.comment(uid, video_id, content, parent_id, created_at, updated_at, deleted_at)
+        values (#{uid}, #{videoId}, #{content}, #{parentId}, #{createdAt}, #{updatedAt}, #{deletedAt})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into yingxue.comment(uid, video_id, content, parent_id, created_at, updated_at, deleted_at)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.uid}, #{entity.videoId}, #{entity.content}, #{entity.parentId}, #{entity.createdAt},
+            #{entity.updatedAt}, #{entity.deletedAt})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into yingxue.comment(uid, video_id, content, parent_id, created_at, updated_at, deleted_at)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.uid}, #{entity.videoId}, #{entity.content}, #{entity.parentId}, #{entity.createdAt},
+            #{entity.updatedAt}, #{entity.deletedAt})
+        </foreach>
+        on duplicate key update
+        uid = values(uid) , video_id = values(video_id) , content = values(content) , parent_id = values(parent_id) ,
+        created_at = values(created_at) , updated_at = values(updated_at) , deleted_at = values(deleted_at)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update yingxue.comment
+        <set>
+            <if test="uid != null">
+                uid = #{uid},
+            </if>
+            <if test="videoId != null">
+                video_id = #{videoId},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt},
+            </if>
+            <if test="deletedAt != null">
+                deleted_at = #{deletedAt},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from yingxue.comment where id = #{id}
+    </delete>
+
+    <!--根据视频id查询视频详情-->
+    <select id="findByVideoId" resultMap="CommentMap">
+        	select c.id, c.uid, c.video_id,c.content,c.parent_id,c.created_at, c.updated_at, c.deleted_at,
+            c1.id cid, c1.uid cuid, c1.video_id cvideo_id,c1.content ccontent,c1.parent_id  cparent_id, c1.created_at ccreated_at,
+            c1.updated_at cupdated_at,c1.deleted_at cdeleted_at
+            from comment c
+            left join comment c1
+            on c.id = c1.parent_id
+            where c.parent_id is null and c.video_id = #{id}
+            limit #{start},#{rows}
+    </select>
+
+
+
+    <!--根据视频id查询视频评论总条数-->
+    <select id="findByVideoIdCounts" resultType="Long">
+        select
+            count(id)
+        from yingxue.comment
+        where video_id = #{id}
+    </select>
+
+
+
+</mapper>
