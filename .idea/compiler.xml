@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ying_api_commons" />
+        <module name="yingxue_api_categoies" />
+        <module name="yingxue_api_users" />
+        <module name="yingxue_api_videos" />
+        <module name="yingxue_api_search" />
+        <module name="yingxue_api_gateways" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ying_api_commons" target="1.5" />
+      <module name="yingxue_api" target="1.5" />
+      <module name="yingxue_api_categoies" target="1.5" />
+      <module name="yingxue_api_gateways" target="1.5" />
+      <module name="yingxue_api_search" target="1.5" />
+      <module name="yingxue_api_users" target="1.5" />
+      <module name="yingxue_api_videos" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

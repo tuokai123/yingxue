@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ying_api_commons/ying_api_commons.iml" filepath="$PROJECT_DIR$/ying_api_commons/ying_api_commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yingxue_api.iml" filepath="$PROJECT_DIR$/yingxue_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yingxue_api_categoies/yingxue_api_categoies.iml" filepath="$PROJECT_DIR$/yingxue_api_categoies/yingxue_api_categoies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yingxue_api_gateways/yingxue_api_gateways.iml" filepath="$PROJECT_DIR$/yingxue_api_gateways/yingxue_api_gateways.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yingxue_api_search/yingxue_api_search.iml" filepath="$PROJECT_DIR$/yingxue_api_search/yingxue_api_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yingxue_api_users/yingxue_api_users.iml" filepath="$PROJECT_DIR$/yingxue_api_users/yingxue_api_users.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yingxue_api_videos/yingxue_api_videos.iml" filepath="$PROJECT_DIR$/yingxue_api_videos/yingxue_api_videos.iml" />
+    </modules>
+  </component>
+</project>
