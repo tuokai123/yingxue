@@ -6,22 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ying_api_commons" />
-        <module name="yingxue_api_categoies" />
-        <module name="yingxue_api_users" />
-        <module name="yingxue_api_videos" />
-        <module name="yingxue_api_search" />
-        <module name="yingxue_api_gateways" />
+        <module name="yingxue_admin_commons" />
+        <module name="yingxue_admin_users" />
+        <module name="yingxue_admin_videos" />
+        <module name="yingxue_admin_gateway" />
+        <module name="yingxue_admin_categories" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ying_api_commons" target="1.8" />
-      <module name="yingxue_api" target="1.8" />
-      <module name="yingxue_api_categoies" target="1.8" />
-      <module name="yingxue_api_gateways" target="1.8" />
-      <module name="yingxue_api_search" target="1.8" />
-      <module name="yingxue_api_users" target="1.8" />
-      <module name="yingxue_api_videos" target="1.8" />
+      <module name="yingxue_admin" target="1.8" />
+      <module name="yingxue_admin_categories" target="1.8" />
+      <module name="yingxue_admin_commons" target="1.8" />
+      <module name="yingxue_admin_gateway" target="1.8" />
+      <module name="yingxue_admin_users" target="1.8" />
+      <module name="yingxue_admin_videos" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

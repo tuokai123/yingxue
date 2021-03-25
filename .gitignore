@@ -1,7 +1,0 @@
-# Project exclude paths
-/ying_api_commons/target/
-/yingxue_api_categoies/target/
-/yingxue_api_gateways/target/
-/yingxue_api_search/target/
-/yingxue_api_users/target/
-/yingxue_api_videos/target/

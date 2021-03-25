@@ -1,0 +1,7 @@
+com\RestTest.class
+com\ucpaas\restDemo\client\JsonReqClient.class
+com\ucpaas\restDemo\HttpConnectionManager.class
+com\ucpaas\restDemo\client\AbsRestClient.class
+TestSMS.class
+com\ucpaas\restDemo\HttpClientUtil.class
+com\ucpaas\restDemo\SysConfig.class

@@ -1,5 +1,4 @@
-
-version: "3.0"
+version: "3.2"
 
 services:
   nacos:
@@ -8,62 +7,3 @@ services:
       - "8848:8848"
     environment:
       - "MODE=standalone"
-      - "JVM_XMS=256m"
-      - "JVM_XMX=256m"
-
-
-  rabbitmq:
-    image: rabbitmq:3.7.28-management
-    container_name: rabbitmq
-    ports:
-      - "15672:15672"
-      - "5672:5672"
-    #environment:
-    #  - "RABBITMQ_DEFAULT_USER=guest"
-    #  - "RABBITMQ_DEFAULT_PASS=guest"
-    env_file:
-      - ./rabbmitq.env
-    volumes:
-      - mqdata:/var/lib/rabbitmq
-
-  redis:
-    image: redis:5.0.10
-    container_name: redis
-    ports:
-      - 6379:6379
-    volumes:
-      - redisdata:/data
-
-  es:
-    container_name: es
-    image: elasticsearch:6.8.0
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    environment:
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    volumes:
-      - ./ik/:/usr/share/elasticsearch/plugins/ik
-      - esdata:/usr/share/elasticsearch/data
-    networks:
-      - yingxue_network
-
-  kibana:
-    image: kibana:6.8.0
-    container_name: kibana
-    ports:
-      - 5601:5601
-    networks:
-      - yingxue_network
-    volumes:
-      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
-    depends_on:
-      - es
-
-volumes:
-  redisdata:
-  mqdata:
-  esdata:
-
-networks:
-  yingxue_network:
