@@ -15,6 +15,10 @@ import java.util.List;
 @Mapper
 public interface VideoDao {
 
+
+
+
+
     /**
      * 通过ID查询单条数据
      *

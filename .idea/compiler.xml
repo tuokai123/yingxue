@@ -15,13 +15,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ying_api_commons" target="1.5" />
-      <module name="yingxue_api" target="1.5" />
-      <module name="yingxue_api_categoies" target="1.5" />
-      <module name="yingxue_api_gateways" target="1.5" />
-      <module name="yingxue_api_search" target="1.5" />
-      <module name="yingxue_api_users" target="1.5" />
-      <module name="yingxue_api_videos" target="1.5" />
+      <module name="ying_api_commons" target="1.8" />
+      <module name="yingxue_api" target="1.8" />
+      <module name="yingxue_api_categoies" target="1.8" />
+      <module name="yingxue_api_gateways" target="1.8" />
+      <module name="yingxue_api_search" target="1.8" />
+      <module name="yingxue_api_users" target="1.8" />
+      <module name="yingxue_api_videos" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
